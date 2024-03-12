@@ -1,0 +1,9 @@
+organice\account\AccountModel$AccountModelBuilder.class
+organice\account\Account$AccountBuilder.class
+organice\account\AccountRepository.class
+organice\account\AccountApplication.class
+organice\account\AccountModel.class
+organice\account\AccountService.class
+organice\account\Account.class
+organice\account\AccountResource.class
+organice\account\AccountParser.class
