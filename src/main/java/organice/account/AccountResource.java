@@ -9,13 +9,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 @RestController
+@Tag(name = "Account", description = "API de Usuário")
 public class AccountResource implements AccountController {
 
     @Autowired
     private AccountService accountService;
 
     @GetMapping("/accounts/info")
+    @Operation(summary = "Rota de Informações da Máquina", description = "Rota de Informações da Máquina utilizada para testar o serviço")
     public ResponseEntity<Map<String, String>> info() {
         return new ResponseEntity<Map<String, String>>(
             Map.ofEntries(
@@ -45,6 +50,7 @@ public class AccountResource implements AccountController {
     }
 
     @Override
+    @Operation(summary = "Criar um novo usuário", description = "Cria um novo usuário e retorna o objeto criado com seu ID.")
     public ResponseEntity<AccountOut> create(AccountIn in) {
         // parser
         Account account = AccountParser.to(in);
@@ -61,12 +67,14 @@ public class AccountResource implements AccountController {
     }
 
     @Override
+    @Operation(summary = "Faz Update de um usuário", description = "Faz Update nos valores de um usuário, não implementado")
     public ResponseEntity<AccountOut> update(String id, AccountIn in) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'update'");
     }
 
     @Override
+    @Operation(summary = "Faz login de um usuário", description = "Faz login de um usuário e retorna o token da sessão")
     public ResponseEntity<AccountOut> login(LoginIn in) {
         Account account = accountService.login(in.email(), in.password());
         if (account == null) {
@@ -76,6 +84,7 @@ public class AccountResource implements AccountController {
     }
 
     @Override
+    @Operation(summary = "Acessa um usuário", description = "Acessa os valores de um usuário, não contando senhas e informações privilegiadas")
     public ResponseEntity<AccountOut> read(String idUser, String roleUser) {
         final AccountOut account = AccountOut.builder()
             .id(idUser)
