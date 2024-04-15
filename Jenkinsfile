@@ -19,7 +19,7 @@ pipeline {
         stage('Build Image') { 
             steps {
                 script {
-                    account = docker.build("alfredjynx/account:${env.BUILD_ID}", "-f Dockerfile .")
+                    account = docker.build('alfredjynx/account:${env.BUILD_ID}', '-f Dockerfile .')
                 }
             }
         } 
