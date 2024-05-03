@@ -2,9 +2,9 @@ spring:
   application:
     name: organice-account
   datasource:
-    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/organice}
-    username: ${DATABASE_USERNAME:organice}
-    password: ${DATABASE_PASSWORD:organice123321}
+    url: jdbc:postgresql://${POSTGRES_HOST}:5432/${POSTGRES_DB
+    username: ${POSTGRES_USER:postgres}
+    password: ${POSTGRES_PASSWORD:Post123321}
     driver-class-name: org.postgresql.Driver
   flyway:
     baseline-on-migrate: true
@@ -26,7 +26,7 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka/}
+      defaultZone: http://${DISCOVERY_HOST}:8761/eureka/}
 
 management:
   endpoints:
