@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: account
-          image: alfredjynx/organice-account:latest
+          image: alfredjynx/account:latest
           ports:
             - containerPort: 8080
           env:
