@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: account
+  name: organice-account
   labels:
     name: account
 spec:
